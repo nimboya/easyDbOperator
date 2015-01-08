@@ -24,11 +24,11 @@ class Db
 	private function dbconnect()
 	{	
 	mysql_connect($this->dbhost,$this->dbusername, $this->dbpassword);
-	mysql_select_db(getdbname());
+	mysql_select_db($this->getdbname());
 	}
 	
 	// For Recording Database Error Logs
-	public static function ErrorLog($content)
+	public function ErrorLog($content)
 	{
 	$file = 'errorlog.txt';
 	$current = file_get_contents($file);
@@ -37,7 +37,7 @@ class Db
 	}
 	
 	// General Insert Method
-	public static function InsertOpt($tablename, $fields, $values)
+	public function InsertOpt($tablename, $fields, $values)
 	{	
 		$status = "";
 		$field = implode("`,`", $fields);
@@ -68,7 +68,7 @@ class Db
 	}
 	
 	// Update Method
-	public static function Update($query, $tablename)
+	public function Update($query, $tablename)
 	{
 		$status = "";
 		$this->dbconnect();
@@ -82,7 +82,7 @@ class Db
 		return $status;
 	}
 	
-	public static function Retrieve($query)
+	public function Retrieve($query)
 	{
 		//$status = "";
 		$this->dbconnect();
@@ -91,7 +91,7 @@ class Db
 		return $getdata;
 	}
 	
-	public static function Delete($query, $tablename)
+	public function Delete($query, $tablename)
 	{
 		$status = "";
 		$this->dbconnect();
