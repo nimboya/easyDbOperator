@@ -14,9 +14,9 @@ General Database Operation
 class Db
 {
 	var $dbhost = "localhost";
-	var $dbusername = "phincorp_wop";
-	var $dbname = "phincorp_wop";
-	var $dbpassword = "app@siteadmin#1";
+	var $dbusername = "root";
+	var $dbname = "appdb";
+	var $dbpassword = "";
 	
 	public function getdbname()
 	{
